@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Jhoselin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header style="background: #333;">
+        <h1>Jhoselin • Gestión</h1>
+        <nav><a href="index.html" style="color:white; text-decoration:none;">← VOLVER A LA TIENDA</a></nav>
+    </header>
+
+    <div class="contenedor">
+        <section class="admin-section">
+            <h3>➕ Cargar Nueva Prenda</h3>
+            <input type="text" id="nombreP" placeholder="Nombre de la prenda">
+            <input type="number" id="precioP" placeholder="Precio en Bs.">
+            <input type="number" id="stockP" placeholder="Cantidad en Stock">
+            <input type="file" id="fotoP" accept="image/*" onchange="leerImagen(this)">
+            <button onclick="nuevoProducto()" class="btn-guardar" style="margin-top:10px;">Publicar Producto</button>
+        </section>
+
+        <section class="admin-section">
+            <h3>📦 Inventario Actual</h3>
+            <div id="listaInventario"></div>
+        </section>
+
+        <section class="admin-section">
+            <h3>📋 Pedidos Recibidos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTabla"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Esto ejecuta las funciones después de que cargue el script
+        window.onload = function() {
+            cargarPedidosAdmin();
+            cargarProductosEnAdmin();
+        };
+    </script>
+</body>
+</html>
